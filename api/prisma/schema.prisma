@@ -1,0 +1,48 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Recepcioner {
+  id           Int      @id @default(autoincrement())
+  username     String   @unique
+  passwordHash String
+  session      String   @unique
+  ticketi      Ticket[]
+}
+
+model Kamp {
+  id      Int      @id @default(autoincrement())
+  naziv   String   @unique
+  ticketi Ticket[]
+}
+
+model Status {
+  id      Int      @id @default(autoincrement())
+  naziv   String   @unique
+  ticketi Ticket[]
+}
+
+model Ticket {
+  id                 Int      @id @default(autoincrement())
+  sifra_recepcionera Int?
+  datum_vrijeme      DateTime @default(now())
+  sifra_kampa        Int?
+  status_ticketa     Int?
+
+  recepcioner                 Recepcioner?         @relation(fields: [sifra_recepcionera], references: [id])
+  status                      Status?              @relation(fields: [status_ticketa], references: [id])
+  kamp                        Kamp?                @relation(fields: [sifra_kampa], references: [id])
+  n_sifra_smjestajne_jedinice Json
+  smjestajne_jedinice         SmjestajnaJedinica[]
+}
+
+model SmjestajnaJedinica {
+  id      Int      @id @default(autoincrement())
+  naziv   String   @unique
+  ticketi Ticket[]
+}

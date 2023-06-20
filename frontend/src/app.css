@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    @apply bg-gray-500
+}
+
+.table-wrp  {
+    max-height: 60vh;
+    overflow-y: auto;
+    display: block;
+}
+thead{
+    position: sticky;
+    top: 0
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+}
+
+
