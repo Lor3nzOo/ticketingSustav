@@ -9,6 +9,8 @@ edit prisma connection url .env
 
 pnpx prisma migrate dev --name init
 
+pnpx prisma generate
+
 pnpm run start:dev
 
 # Starting frontend
