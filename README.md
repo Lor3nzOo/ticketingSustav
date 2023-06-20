@@ -17,3 +17,6 @@ cd frontend
 pnpm i
 
 pnpm run dev
+
+Master password: 12345678
+Master password location: frontend/src/routes/(auth)/master/+page.svelte
