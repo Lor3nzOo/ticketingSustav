@@ -5,7 +5,7 @@ cd api
 
 pnpm i
 
-edit prisma connection url
+edit prisma connection url .env
 
 pnpx prisma migrate dev --name init
 
