@@ -7,7 +7,7 @@ pnpm i
 
 edit prisma connection url
 
-npx prisma migrate dev --name init
+pnpx prisma migrate dev --name init
 
 pnpm run start:dev
 
